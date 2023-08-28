@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>LeaderBoard</title>
+<script defer src="main.js"></script></head>
+<body>
+    <main class="Outer-container">
+        <h1>LeaderBoard</h1>
+     <div class="inner-container" id="inner">
+        <section class="recent-scores" id="recent">
+            <div class="heading">
+            <h2>Recent Scores</h2>
+            <button  class="add-scores-btn btn" type="submit">Refresh</button>
+             </div>
+        <ul class="score-container" id="score-conatiner">
+            <li><span>Name:</span><span>100</span></li>
+            <li><span>Name:</span><span>20</span></li>
+            <li><span>Name:</span><span>50</span></li>
+            <li><span>Name:</span><span>78</span></li>
+            <li><span>Name:</span><span></span>125</li>
+            <li><span>Name:</span><span>77</span></li>
+            <li><span>Name:</span><span>42</span></li>
+        </ul>
+     </section>
+     <section class="add-scores" id="add">
+        <form  class="add-scores-form" action="#" method="post">
+            <h2>Add Your Score</h2>
+            <input type="text" required maxlength="50" value="Your Name" placeholder="Your name" class ="box">
+            <input type="number" required maxlength="50" value="Your score" placeholder="Your score" class ="box">
+            <button  class="add-scores-btn" type="submit">Submit</button>
+        </form>
+    </section>
+ </div>
+</main>
+</body>
+</html>
