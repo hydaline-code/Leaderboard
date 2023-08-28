@@ -9,15 +9,14 @@ h1 {
 }
 
 .heading {
- display: flex;
-gap: 2rem;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-margin-left: 2rem;
+  display: flex;
+  gap: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 2rem;
 }
 
 .heading-btn {
-width: 7rem;
-
+  width: 7rem;
 }
 
 .btn {
@@ -40,8 +39,8 @@ width: 7rem;
   width: 6rem;
   align-self: flex-end;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-right:  2px solid black;
-  border-bottom:  2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
   background: none;
 }
 
@@ -59,7 +58,6 @@ width: 7rem;
   padding: 0.5rem 0;
   margin-left: -40px;
   background-color: rgb(154, 154, 154);
- 
 }
 
 .score-container li:nth-child(2n+1) {
@@ -69,4 +67,3 @@ width: 7rem;
 .score-container li span {
   margin-left: 1rem;
 }
-
