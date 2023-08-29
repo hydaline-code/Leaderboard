@@ -110,12 +110,13 @@ You can deploy this project using:
 
 
 ## 🤝 Contributing <a name="contributing"></a>
+Contributions, issues, and feature requests are welcome at : 
 
-Contributions, issues, and feature requests are welcome! 
+   - Contribute : [https://github.com/hydaline-code/Leaderboard/issues]
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project you can go ahead give some stars to the repository.
+If you like this project you can go ahead give some ]stars to the repository.
 
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
