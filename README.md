@@ -34,8 +34,8 @@
 
 ### Key Features <a name="key-features"></a>
     - Set up a new project with webpack
-    - Use api for key gen and styling 
-    -Document is created dynamically using JS
+    - Use api for to create the leaderbord game
+    -Elements are created dynamically using JS
 
 ## 💻 Getting Started <a name="getting-started"></a>
 

@@ -11,9 +11,10 @@ const createGame = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: 'My cool new game' }), 
+      body: JSON.stringify({ name: 'My cool new game' }),
     });
     const game = await response.json();
+    // eslint-disable-next-line prefer-destructuring
     gameId = game.result.split(' ')[3];
     console.log('Game ID:', gameId);
   } catch (error) {
@@ -28,7 +29,6 @@ const refreshScores = async () => {
     const response = await fetch(`${baseURL}/games/${gameId}/scores`);
     const scores = await response.json();
     console.log('Scores:', scores);
-   
   } catch (error) {
     console.error('Error fetching scores:', error);
   }
@@ -57,23 +57,23 @@ const submitScore = async (event) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user: playerName, score: score }),
+      body: JSON.stringify({ user: playerName, score }),
     });
+    if (response.ok) {
+      playerNameInput.value = '';
+      scoreInput.value = '';
 
-    playerNameInput.value = '';
-    scoreInput.value = '';
+      console.log('Leaderboard score submitted successfully!');
 
-    console.log('Leaderboard score submitted successfully!');
-    
-    refreshScores(); 
-    displayScore(playerName, score); 
-
+      refreshScores();
+      displayScore(playerName, score);
+    }
   } catch (error) {
     console.error('Error submitting score:', error);
   }
 };
 
-// Display a single score dynamically 
+// Display a single score dynamically
 const displayScore = (user, score) => {
   const scoreContainer = document.getElementById('score-container');
 
@@ -85,9 +85,9 @@ const displayScore = (user, score) => {
   const seperator = document.createElement('span');
   scoreContainer.appendChild(listItem);
   seperator.textContent = ': ';
-listItem.appendChild(playerName);
-listItem.appendChild(seperator);
-listItem.appendChild(playerScore);
+  listItem.appendChild(playerName);
+  listItem.appendChild(seperator);
+  listItem.appendChild(playerScore);
 };
 
 const scoreForm = document.getElementById('scoreForm');
