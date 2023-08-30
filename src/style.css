@@ -2,10 +2,13 @@
 .inner-container {
   display: flex;
   gap: 2rem;
+  box-shadow: 0 2px 4px rgba(108, 209, 227, 0.594);
 }
 
 h1 {
+  padding: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: linear-gradient(to right, rgb(242, 104, 104), rgba(242, 217, 27, 0.947), yellow, green, blue, indigo, violet);
 }
 
 .heading {
@@ -20,7 +23,7 @@ h1 {
 }
 
 .btn {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 .add-scores-form {
@@ -31,37 +34,51 @@ h1 {
 }
 
 .add-scores-form input {
-  border: 2px solid black;
   padding: 0.2rem;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 2px solid #3498db;
+  box-shadow: 0 2px 4px rgba(108, 209, 227, 0.594);
 }
 
 .add-scores-btn {
   width: 6rem;
   align-self: flex-end;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  background-color: #64c7ee;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.5rem 1rem;
   border-right: 2px solid black;
   border-bottom: 2px solid black;
-  background: none;
+}
+
+.add-scores-btn:hover {
+  background-color: #2980b9;
 }
 
 .score-container {
-  border: 2px solid black;
-  width: 300px;
+  border: 2px solid #3498db;
+  width: 400px;
   margin-left: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 .score-container li {
   list-style: none;
-  border-bottom: 2px solid  rgb(164, 163, 163);
-  padding: 0.5rem 0;
+  border-bottom: 1px solid #3498db;
+  padding: 0.4rem 0;
   margin-left: -40px;
-  background-color: rgb(154, 154, 154);
+  background-color: #fff;
 }
 
 .score-container li:nth-child(2n+1) {
-  background: white;
+  background: #cff3f3;
 }
 
 .score-container li span {
@@ -70,7 +87,24 @@ h1 {
 
 .player-name {
   display: inline-block;
+  width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.player-score {
+  display: inline-block;
+  width: 20px;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.separator {
+  margin-left: 0;
+}
+
+.add-scores-btn:hover,
+.score-container li:hover {
+  transform: scale(1.05);
 }
