@@ -67,3 +67,11 @@ h1 {
 .score-container li span {
   margin-left: 1rem;
 }
+
+.player-name {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+

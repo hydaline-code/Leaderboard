@@ -4,6 +4,19 @@ import './style.css';
 const baseURL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 let gameId;
 
+const scoreContainer = document.getElementById('score-container');
+
+const showMessage = (message) => {
+  const messageContainer = document.getElementById('score-container');
+  const tittle = document.createElement('h5');
+  tittle.textContent = message;
+  messageContainer.appendChild(tittle);
+  setTimeout(() => {
+    messageContainer.removeChild(tittle);
+  }, 2000);
+};
+
+
 const createGame = async () => {
   try {
     const response = await fetch(`${baseURL}/games/`, {
@@ -16,9 +29,10 @@ const createGame = async () => {
     const game = await response.json();
     // eslint-disable-next-line prefer-destructuring
     gameId = game.result.split(' ')[3];
-    console.log('Game ID:', gameId);
+    showMessage(`Game ID: ${gameId}`);
+
   } catch (error) {
-    console.error('Error creating game:', error);
+    showMessage(`Error fetching gameID: ${error}`);
   }
 };
 
@@ -28,14 +42,21 @@ const refreshScores = async () => {
   try {
     const response = await fetch(`${baseURL}/games/${gameId}/scores`);
     const scores = await response.json();
-    console.log('Scores:', scores);
+   scores.result.forEach((score) => {
+    const { user, score: scoreValue } = score;
+    displayScore(user, scoreValue);
+  });
+
   } catch (error) {
-    console.error('Error fetching scores:', error);
+    showMessage(`Error fetching scores: ${error}`);
   }
 };
 
 const refreshButton = document.getElementById('refreshButton');
-refreshButton.addEventListener('click', refreshScores);
+refreshButton.addEventListener('click', () => {
+  scoreContainer.innerHTML = '';
+  refreshScores();
+});
 
 const submitScore = async (event) => {
   event.preventDefault();
@@ -48,7 +69,7 @@ const submitScore = async (event) => {
 
   try {
     if (!gameId) {
-      console.log('Game ID not available. Please create a game .');
+     showMessage(`Game ID not available. Please create a game .`);
       return;
     }
 
@@ -63,26 +84,27 @@ const submitScore = async (event) => {
       playerNameInput.value = '';
       scoreInput.value = '';
 
-      console.log('Leaderboard score submitted successfully!');
-
-      refreshScores();
-      displayScore(playerName, score);
+      showMessage('Leaderboard score submitted successfully!');
+    
     }
   } catch (error) {
-    console.error('Error submitting score:', error);
+    showMessage(`Error submitting score: ${error}`);
   }
 };
 
 // Display a single score dynamically
-const displayScore = (user, score) => {
-  const scoreContainer = document.getElementById('score-container');
+const displayScore = ( user, score) => {
+ 
 
   const listItem = document.createElement('li');
   const playerName = document.createElement('span');
   playerName.textContent = ` ${user} `;
+  playerName.classList.add('player-name');
   const playerScore = document.createElement('span');
+  playerScore.classList.add('player-score');
   playerScore.textContent = `${score}`;
   const seperator = document.createElement('span');
+  seperator.classList.add('separator');
   scoreContainer.appendChild(listItem);
   seperator.textContent = ': ';
   listItem.appendChild(playerName);
