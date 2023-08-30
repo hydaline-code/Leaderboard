@@ -8,29 +8,23 @@
     <title>LeaderBoard</title>
 </head>
 <body>
-    <main class="Outer-container">
+    <main class="Outer-container" id="message">
         <h1>LeaderBoard</h1>
      <div class="inner-container" id="inner">
         <section class="recent-scores" id="recent">
             <div class="heading">
             <h2>Recent Scores</h2>
-            <button  class="add-scores-btn btn" type="submit">Refresh</button>
+            <button  class="add-scores-btn btn" type="submit" id="refreshButton">Refresh</button>
              </div>
-        <ul class="score-container" id="score-conatiner">
-            <li><span>Name:</span><span>100</span></li>
-            <li><span>Name:</span><span>20</span></li>
-            <li><span>Name:</span><span>50</span></li>
-            <li><span>Name:</span><span>78</span></li>
-            <li><span>Name:</span><span></span>125</li>
-            <li><span>Name:</span><span>77</span></li>
-            <li><span>Name:</span><span>42</span></li>
+        <ul class="score-container" id="score-container">
+           
         </ul>
      </section>
      <section class="add-scores" id="add">
-        <form  class="add-scores-form" action="#" method="post">
+        <form  class="add-scores-form"  id="scoreForm" >
             <h2>Add Your Score</h2>
-            <input type="text" required maxlength="50" value="Your Name" placeholder="Your name" class ="box">
-            <input type="number" required maxlength="50" value="Your score" placeholder="Your score" class ="box">
+            <input type="text" required maxlength="50" id="playerName" placeholder="Your name" class ="box">
+            <input type="number" required maxlength="50" placeholder="Your score" class ="box" id="score">
             <button  class="add-scores-btn" type="submit">Submit</button>
         </form>
     </section>
