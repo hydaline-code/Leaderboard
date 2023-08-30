@@ -16,7 +16,6 @@ const showMessage = (message) => {
   }, 2000);
 };
 
-
 const createGame = async () => {
   try {
     const response = await fetch(`${baseURL}/games/`, {
@@ -30,7 +29,6 @@ const createGame = async () => {
     // eslint-disable-next-line prefer-destructuring
     gameId = game.result.split(' ')[3];
     showMessage(`Game ID: ${gameId}`);
-
   } catch (error) {
     showMessage(`Error fetching gameID: ${error}`);
   }
@@ -42,11 +40,10 @@ const refreshScores = async () => {
   try {
     const response = await fetch(`${baseURL}/games/${gameId}/scores`);
     const scores = await response.json();
-   scores.result.forEach((score) => {
-    const { user, score: scoreValue } = score;
-    displayScore(user, scoreValue);
-  });
-
+    scores.result.forEach((score) => {
+      const { user, score: scoreValue } = score;
+      displayScore(user, scoreValue);
+    });
   } catch (error) {
     showMessage(`Error fetching scores: ${error}`);
   }
@@ -69,7 +66,7 @@ const submitScore = async (event) => {
 
   try {
     if (!gameId) {
-     showMessage(`Game ID not available. Please create a game .`);
+      showMessage('Game ID not available. Please create a game .');
       return;
     }
 
@@ -85,7 +82,6 @@ const submitScore = async (event) => {
       scoreInput.value = '';
 
       showMessage('Leaderboard score submitted successfully!');
-    
     }
   } catch (error) {
     showMessage(`Error submitting score: ${error}`);
@@ -93,9 +89,7 @@ const submitScore = async (event) => {
 };
 
 // Display a single score dynamically
-const displayScore = ( user, score) => {
- 
-
+const displayScore = (user, score) => {
   const listItem = document.createElement('li');
   const playerName = document.createElement('span');
   playerName.textContent = ` ${user} `;
