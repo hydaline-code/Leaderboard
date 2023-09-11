@@ -20,7 +20,7 @@ const createGame = async () => {
   try {
     const response = await fetch(`${baseURL}/games/`, {
       method: 'POST',
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name: 'My cool new game' }),
